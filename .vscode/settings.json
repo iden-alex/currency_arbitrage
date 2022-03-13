@@ -1,0 +1,22 @@
+{
+    "files.exclude": {
+      "**/.git": true, // this is a default value
+      "**/.DS_Store": true, // this is a default value
+      "**/node_modules": true, // this excludes all folders
+      "**/__pycache__/": true,
+      "**.ipynb_checkpoints": true
+    },
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+      "--max-line-length",
+      "120",
+      "--extend-ignore",
+      "E203 E402 F401",
+    ],
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": true,
+    "python.languageServer": "Pylance",
+    "python.defaultInterpreterPath": "venv/bin/python3"
+  }
+  
