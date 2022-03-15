@@ -18,8 +18,9 @@ import json
 import logging
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-from app import get_current_currency, BadResponse, sleep
+from app import get_current_currency, BadResponse, sleep, CURRENCIES
 import requests
+from src.find_profit_list import find_profit_list
 
 # Enable logging
 logging.basicConfig(
@@ -96,8 +97,10 @@ def main():
         try:
 
             print("TEST HACK")
-            currencies = get_current_currency()
-            send_signals(updater=updater, currencies=currencies)
+            actual_curs = get_current_currency()
+            profit_list = find_profit_list(actual_curs, CURRENCIES)
+            if profit_list:
+                send_signals(updater=updater, currencies=profit_list)
 
         except requests.exceptions.Timeout:
             print("Timeout Error")
