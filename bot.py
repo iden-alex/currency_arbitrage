@@ -17,15 +17,13 @@ bot.
 import json
 import logging
 
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.ext import Updater, CommandHandler
 from app import get_current_currency, BadResponse, sleep, CURRENCIES
 import requests
 from src.find_profit_list import find_profit_list
 
 # Enable logging
-logging.basicConfig(
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
-)
+logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO)
 
 logger = logging.getLogger(__name__)
 
@@ -72,9 +70,7 @@ def main():
     # Create the Updater and pass it your bot's token.
     # Make sure to set use_context=True to use the new context based callbacks
     # Post version 12 this will no longer be necessary
-    updater = Updater(
-        "5238631123:AAH465nhVGKN-OcBoIF-Z6avkHwiwP9pKWU", use_context=True
-    )
+    updater = Updater("5238631123:AAH465nhVGKN-OcBoIF-Z6avkHwiwP9pKWU", use_context=True)
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
