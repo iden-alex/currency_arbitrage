@@ -1,3 +1,5 @@
+"""Поиск выгодного последовательности валюты для арбитража."""
+
 from typing import List, Dict, Tuple
 
 from itertools import permutations
@@ -22,10 +24,12 @@ actual_currs = {
 
 
 def comp_profit(actual_currs: Dict[Tuple, float], currs: List[str]) -> float:
-    """Оценка профита конвертации по заданному списку валют
+    """Оценка профита конвертации по заданному списку валют.
+
     Args:
-        actual_currs - список актуальных курсов валюь
-        currs - последовательность валют
+        actual_currs: список актуальных курсов валюь
+        currs: последовательность валют
+
     """
     acc = 1
     for curr_pair in zip(currs, currs[1:]):
@@ -36,12 +40,15 @@ def comp_profit(actual_currs: Dict[Tuple, float], currs: List[str]) -> float:
 def find_profit_list(
     actual_currs: Dict[Tuple, float], currency_names: List[str], max_len_seq=4
 ) -> List[Tuple[List, float]]:
-    """Поиск списка валют с профитом >= 1
+    """Поиск списка валют с профитом >= 1.
+
     Args:
-            actual_currs - список актуальных курсов валюь
-            currency_names - список названий валют
+        actual_currs: список актуальных курсов валюь
+        currency_names: список названий валют
+
     Returns:
-            (['GBP', 'USD', 'EUR', 'GBP'], 1.010832384027581)
+        Example: (['GBP', 'USD', 'EUR', 'GBP'], 1.010832384027581)
+
     """
     profit_list = []
     for i in list(range(2, max_len_seq + 1)):
