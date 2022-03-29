@@ -1,4 +1,3 @@
-from multiprocessing import Barrier
 import random
 import time
 import requests
@@ -23,22 +22,14 @@ HEADERS = {
 
 def find_pair(rates, from_currency, to_currency) -> float:
     for rate in rates:
-        if (
-            rate["fromCurrency"]["name"] == from_currency
-            and rate["toCurrency"]["name"] == to_currency
-        ):
+        if rate["fromCurrency"]["name"] == from_currency and rate["toCurrency"]["name"] == to_currency:
             return rate["buy"]
-        if (
-            rate["fromCurrency"]["name"] == to_currency
-            and rate["toCurrency"]["name"] == from_currency
-        ):
+        if rate["fromCurrency"]["name"] == to_currency and rate["toCurrency"]["name"] == from_currency:
             return 1 / rate["sell"]
 
 
 def get_current_currency() -> dict:
-    response = requests.get(
-        "https://api.tinkoff.ru/v1/currency_rates", timeout=10, headers=HEADERS
-    )
+    response = requests.get("https://api.tinkoff.ru/v1/currency_rates", timeout=10, headers=HEADERS)
     if response.status_code != 200:
         raise BadResponse
     res = {}

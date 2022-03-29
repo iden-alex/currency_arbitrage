@@ -1,0 +1,7 @@
+[tool.black]
+#
+# When changing codestyle checks, also check and update [flake8] configuration in setup.cfg
+#
+
+line-length = 120
+target-version = ["py38"]

@@ -1,7 +1,6 @@
 from typing import List, Dict, Tuple
 
-from functools import reduce
-from itertools import permutations, combinations
+from itertools import permutations
 
 
 currency_names = ["RUB", "USD", "EUR", "GBP"]
