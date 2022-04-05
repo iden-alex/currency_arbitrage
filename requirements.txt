@@ -1,3 +1,4 @@
 requests
 tqdm
 python-telegram-bot
+sphinx
