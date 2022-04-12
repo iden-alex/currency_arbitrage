@@ -2,3 +2,4 @@ requests
 tqdm
 python-telegram-bot
 sphinx
+sphinx-intl
